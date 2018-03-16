@@ -16,7 +16,7 @@ let oneYear   = oneMonth * 12;
  
 var authUsers = [ // accounts that can trigger bot
 	{'tag': 'GentooGames',   'id': 760930210493542401},
-	//{'tag': 'PopDaddyGames', 'id': 931437582621143040}
+	{'tag': 'PopDaddyGames', 'id': 931437582621143040}
 ];
 
 //-----------------------------------------------------------------------------------------------
@@ -85,6 +85,7 @@ userStream.on('tweet', function(tweet) {
 	}
 });
 
+// Check for any incoming direct messages and forward to authUsers
 var dmStream = Twitter.stream('user');
 dmStream.on('direct_message', function notifyOwners(mssg) {
 	var mssgText = mssg.direct_message.text;
