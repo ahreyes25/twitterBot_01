@@ -38,28 +38,25 @@ userStream.on('tweet', function(tweet) {
 	var hasHash  = false;
 
 	// Check for authenticated user
-	for (var i = 0; i < authUsers.length; i++) {
+	for (var i = 0; i < authUsers.length; i++)
 		if (msgFrom === authUsers[i].tag) {
 			authUser = true;
 			break;
 		}
-	}
 
 	// Check for approved hashtags
-	for (var i = 0; i < hashes.length; i++) { 
+	for (var i = 0; i < hashes.length; i++)
 		if (hashes[i].text === 'spikybois') {
 			hasHash = true;
 			break;
 		}
-	}
 
 	if (authUser && hasHash) { // like and retweet
 		retweet(tweet);
 		favorite(tweet);
 	}
-	else if (authUser && !hasHash) { // just like, no retweet
+	else if (authUser && !hasHash) // just like, no retweet
 		favorite(tweet);
-	}
 });
 
 // Check for any incoming direct messages and forward to authUsers
